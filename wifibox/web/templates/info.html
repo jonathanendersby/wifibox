@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}WifiBox - Featured{% endblock %}
+{% block content %}
+        <div class="media_box_video">
+            <a href="{{m.path}}">
+            
+            <img src="{{m.path}}.jpg" style="width:100%" /></a><br />
+            
+            <a href="{{m.path}}" class="media_name">{{m.name}}.</a><br /><br />
+
+            <a href="{{m.path}}" class="media_description">{{ m.description }}</a> ({{m.category}})<br /><br />
+            
+            <a href="/info/{{m.id}}/" class="media_link">Info</a> - <a href="{{m.path}}" class="media_link">Watch</a> - <a href="{{m.path}}?force-download=1" class="media_link">Download</a>
+        </div>
+
+{% endblock %}

@@ -14,14 +14,6 @@ def about(request):
     return render(request,'about.html')
 
 
-def serve(request):
-    response = HttpResponse()
-    response["Content-Disposition"] = "attachment; filename=foo.mp4"
-    #response['X-Accel-Redirect'] = "/media/TED Talks/SirKenRobinson_2006.mp4"
-    response['X-Sendfile'] = "/media/TED Talks/SirKenRobinson_2006.mp4"
-   
-    return response
-
-
-def redir(request):
-    return redirect('/media/TED Talks/SirKenRobinson_2006.mp4')
+def info(request, media_id):
+    media = Media.objects.get(pk=media_id)
+    return render(request, 'info.html', {'m':media, })
