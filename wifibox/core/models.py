@@ -6,6 +6,7 @@ class Media(models.Model):
     path = models.CharField(max_length=150)
     type = models.ForeignKey('MediaType')
     category = models.ForeignKey('MediaCategory')
+    added = models.DateTimeField(auto_now_add=True)
 
     def __unicode__(self):
         return self.name

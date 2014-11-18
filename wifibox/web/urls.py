@@ -6,5 +6,6 @@ urlpatterns = patterns('',
     url(r'^$', views.landing, name='landing'),
     url(r'^about/$', views.about, name='about'),
     url(r'^info/(?P<media_id>\d+)/$', views.info, name='info'),
+    url(r'^browse/$', views.browse, name='browse'),
 )
 

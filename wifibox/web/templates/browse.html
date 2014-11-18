@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}WifiBox - Featured{% endblock %}
+{% block content %}
+
+
+{% if media %}
+    <h2>{{ category }}</h2>
+
+    {% for m in media %}
+        <div class="media_box_video">
+            <a href="{{m.path}}">
+                <img src="{{m.path}}.jpg" style="width:100%" /></a><br />
+                <a href="{{m.path}}" class="media_name">{{m.name}}.</a>
+                <a href="{{m.path}}" class="media_description">{{m.description|truncatewords:15}}</a>
+            <br />
+            <a href="/info/{{m.id}}" class="media_link">Info</a> - <a href="{{m.path}}" class="media_link">Watch</a> - <a href="{{m.path}}?force-download=1" class="media_link">Download</a>
+        </div>
+    {% endfor %}
+
+
+{% else %}
+
+    <h2>Categories</h2>
+    <ul>
+        {% for cat in cats %}
+        <li><a href="?category={{ cat }}">{{cat}}</a> ({{cat.num}})</li>
+        {% endfor %}
+    </ul>
+
+{% endif %}
+
+{% endblock %}
