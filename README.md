@@ -27,8 +27,7 @@ server {
             autoindex on;
 
             if ($arg_force-download){
-                set $fname $1;
-                add_header Content-Disposition 'attachment; filename="$fname"';
+                add_header Content-Type 'application/octet-stream';
             }
         }
 
@@ -42,7 +41,6 @@ server {
                 proxy_set_header X-Real-IP $remote_addr;
                 add_header P3P 'CP="ALL DSP COR PSAa PSDa OUR NOR ONL UNI COM NAV"';
         }
-
 }
 </pre>
 
